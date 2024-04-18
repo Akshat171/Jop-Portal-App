@@ -14,10 +14,8 @@ const DemoNearby = () => {
   const [loading, setIsLoading] = useState(false);
   const [items, setItems] = useState([]);
   const [currentPage, setCurrentPage] = useState(0);
-  const pageSize = 12;
 
   const api_key = API_KEY;
-  console.log("API key: " + api_key);
 
   const fetchPage = async () => {
     if (loading) {
