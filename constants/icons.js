@@ -9,6 +9,7 @@ import vacancy from "../assets/icons/vacancy.png";
 import salary from "../assets/icons/money.png";
 import experince from "../assets/icons/review.png";
 import getPlaced from "../assets/icons/Getplaced.png";
+import bookMark_fill from "../assets/icons/bookmark_fill.png";
 
 export default {
   home,
@@ -22,4 +23,5 @@ export default {
   experince,
   salary,
   getPlaced,
+  bookMark_fill,
 };

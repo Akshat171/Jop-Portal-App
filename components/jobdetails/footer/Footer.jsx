@@ -14,12 +14,10 @@ import { GlobalContext } from "../../../Global/Context";
 const Footer = ({ jobInfo }) => {
   //getting the data of all bookmark jobs from global state
   const { bookmarkedJobs, setBookmarkedJobs } = useContext(GlobalContext);
-
+  const isJobBookmarked = bookmarkedJobs.some(
+    (job) => job.company_name === jobInfo.company_name
+  );
   const handleBookmarkPress = () => {
-    const isJobBookmarked = bookmarkedJobs.some(
-      (job) => job.company_name === jobInfo.company_name
-    );
-
     //Filteration based on already bookmarked or not.
     if (isJobBookmarked) {
       // Remove the job from bookmarkedJobs
@@ -52,7 +50,7 @@ const Footer = ({ jobInfo }) => {
         onPress={handleBookmarkPress}
       >
         <Image
-          source={icons.bookmarkIcon}
+          source={isJobBookmarked ? icons.bookMark_fill : icons.bookmarkIcon}
           resizeMode="contain"
           style={styles.bookmarkStyle}
         />
