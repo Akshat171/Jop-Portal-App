@@ -130,7 +130,7 @@ https://github.com/Akshat171/Jop-Portal-App/assets/81281246/7e4d9d23-0ff3-48d3-b
 
 ## Feedback
 
-Feel free to send feedback or [file an issue](https://github.com/gitpoint/Jop-Portal-App/issues/new). Feature requests are always welcome. If you wish to contribute, please take a quick look at the [guidelines](./CONTRIBUTING.md)!
+Feel free to send feedback or [file an issue](https://github.com/Akshat171/Jop-Portal-App/issues/new). Feature requests are always welcome. If you wish to contribute, please take a quick look at the [guidelines](./CONTRIBUTING.md)!
 
 ## Contributing
 
