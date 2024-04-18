@@ -18,7 +18,7 @@ const NearbyJobCard = ({ job, handleNavigate }) => {
             source={{
               uri: checkImageURL(job.creatives[0].file)
                 ? job.creatives[0].file
-                : "https://t4.ftcdn.net/jpg/05/05/61/73/360_F_505617309_NN1CW7diNmGXJfMicpY9eXHKV4sqzO5H.jpg",
+                : "https://imgs.search.brave.com/yZTArb18OPMkp3Rea9-PEHyG3X4iGitLjn_nW9Xyl7s/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9jZG4t/aWNvbnMtcG5nLmZs/YXRpY29uLmNvbS81/MTIvMzg1MC8zODUw/Mjg1LnBuZw",
             }}
             resizeMode="contain"
             style={styles.logImage}

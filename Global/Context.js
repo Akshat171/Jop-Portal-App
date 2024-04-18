@@ -5,9 +5,8 @@ const GlobalContext = createContext();
 
 const GlobalProvider = ({ children }) => {
   const [bookmarkedJobs, setBookmarkedJobs] = useState([]);
-  const demo = 12;
   return (
-    <GlobalContext.Provider value={{ bookmarkedJobs, setBookmarkedJobs, demo }}>
+    <GlobalContext.Provider value={{ bookmarkedJobs, setBookmarkedJobs }}>
       {children}
     </GlobalContext.Provider>
   );

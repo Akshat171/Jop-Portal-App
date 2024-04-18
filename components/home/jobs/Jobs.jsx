@@ -1,12 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useRouter } from "expo-router";
-import {
-  View,
-  Text,
-  TouchableOpacity,
-  ActivityIndicator,
-  FlatList,
-} from "react-native";
+import { View, ActivityIndicator, FlatList } from "react-native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import NetInfo from "@react-native-community/netinfo";
 
@@ -34,7 +28,7 @@ const DemoNearby = () => {
       const isConnected = connectionInfo.isConnected;
       // Use the 'isConnected' variable to determine internet availability
       console.log("Is connected:", isConnected);
-      if (isConnected) {
+      if (!isConnected) {
         const response = await fetch(
           `https://0693fac8-48f3-485d-a245-9d6f14cf306e.mock.pstmn.io/jobs?page=${nextPage}`
         );
@@ -100,7 +94,7 @@ const DemoNearby = () => {
               job={item}
               handleNavigate={() => {
                 router.push({
-                  pathname: `/job-details/${item.job_id}`,
+                  pathname: `/job-details/${item.id}`,
                   params: {
                     id: item?.job_role_id,
                     company_name: item?.creatives[0]?.file,

@@ -1,12 +1,11 @@
-import { View, Text, SafeAreaView, ScrollView } from "react-native";
-import React, { useState } from "react";
-import { Stack, useRouter } from "expo-router";
+import { View, SafeAreaView } from "react-native";
+import React from "react";
+import { Stack } from "expo-router";
 import { COLORS, FONT, icons, SIZES } from "../../constants";
 import { HeaderBtn, Welcome } from "../../components";
 import { Jobs } from "../../components";
 
 const home = () => {
-  const router = useRouter();
   return (
     <SafeAreaView
       style={{

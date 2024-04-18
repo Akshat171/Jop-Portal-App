@@ -1,10 +1,9 @@
-import React, { useCallback, useState } from "react";
+import React, { useState } from "react";
 import {
   Text,
   View,
   SafeAreaView,
   ScrollView,
-  ActivityIndicator,
   RefreshControl,
 } from "react-native";
 import { Stack, useRouter, useLocalSearchParams } from "expo-router";
