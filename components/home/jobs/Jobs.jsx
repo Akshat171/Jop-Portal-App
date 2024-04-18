@@ -28,7 +28,7 @@ const DemoNearby = () => {
       const isConnected = connectionInfo.isConnected;
       // Use the 'isConnected' variable to determine internet availability
       console.log("Is connected:", isConnected);
-      if (!isConnected) {
+      if (isConnected) {
         const response = await fetch(
           `https://0693fac8-48f3-485d-a245-9d6f14cf306e.mock.pstmn.io/jobs?page=${nextPage}`
         );
