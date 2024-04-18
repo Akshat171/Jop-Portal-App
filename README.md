@@ -6,7 +6,7 @@
 </p>
 
 <p align="center">
-  GitHub in your pocket. Built with React Native + Expo.
+ Built with React Native + Expo.
 </p>
 
 <p align="center">
