@@ -130,6 +130,7 @@ const DemoNearby = () => {
           onEndReached={fetchPage}
           onEndReachedThreshold={0.1}
           contentContainerStyle={{ gap: 3 }}
+          maxToRenderPerBatch={10}
           ListFooterComponent={() =>
             loading && (
               <ActivityIndicator size={SIZES.medium} color={COLORS.primary} />
