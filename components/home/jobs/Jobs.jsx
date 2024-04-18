@@ -3,6 +3,7 @@ import { useRouter } from "expo-router";
 import { View, ActivityIndicator, FlatList } from "react-native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import NetInfo from "@react-native-community/netinfo";
+import { API_KEY } from "@env";
 
 import styles from "./jobs.style";
 import { COLORS, SIZES } from "../../../constants";
@@ -14,6 +15,9 @@ const DemoNearby = () => {
   const [items, setItems] = useState([]);
   const [currentPage, setCurrentPage] = useState(0);
   const pageSize = 12;
+
+  const api_key = API_KEY;
+  console.log("API key: " + api_key);
 
   const fetchPage = async () => {
     if (loading) {
@@ -29,9 +33,7 @@ const DemoNearby = () => {
       // Use the 'isConnected' variable to determine internet availability
       console.log("Is connected:", isConnected);
       if (isConnected) {
-        const response = await fetch(
-          `https://0693fac8-48f3-485d-a245-9d6f14cf306e.mock.pstmn.io/jobs?page=${nextPage}`
-        );
+        const response = await fetch(`${api_key}${nextPage}`);
         const responseJson = await response.json();
         //   console.log(responseJson.page_size);
         setItems((existingItems) => {
