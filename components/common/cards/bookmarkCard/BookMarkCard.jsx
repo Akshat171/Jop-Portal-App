@@ -6,11 +6,8 @@ import { checkImageURL } from "../../../../utils";
 import { icons } from "../../../../constants";
 
 const BookMarkCard = ({ job }) => {
-  const router = useRouter();
-  const handlePress = () => {
-    router.push({ pathname: `/job-details/${job.job_id}`, params: { id: 2 } });
-  };
-  console.log(job);
+  //Geting all the info regarding job as a props
+  // console.log(job);
   return (
     <TouchableOpacity style={styles.container}>
       <View style={styles.upperContainer}>

@@ -21,15 +21,19 @@ const DemoNearby = () => {
     if (loading) {
       return;
     }
+
     console.log("fetching next page");
     const nextPage = currentPage + 1;
     setIsLoading(true);
 
     try {
+      // getting info of online or offline network from NetInfo library
       const connectionInfo = await NetInfo.fetch();
       const isConnected = connectionInfo.isConnected;
       // Use the 'isConnected' variable to determine internet availability
       console.log("Is connected:", isConnected);
+
+      //if it is connected then fetch the data
       if (isConnected) {
         const response = await fetch(`${api_key}${nextPage}`);
         const responseJson = await response.json();
@@ -39,21 +43,27 @@ const DemoNearby = () => {
         });
         await storeData(responseJson?.results, "jobs");
         setCurrentPage(nextPage);
-      } else {
+      }
+      //else show the data stored in Async storage
+      else {
         const cachedJobs = await getData("jobs");
         if (cachedJobs) {
           setItems(cachedJobs);
-        } else {
+        }
+        //if not stored in cached then show Data not found
+        else {
           console.log("No cached jobs found.");
         }
       }
     } catch (error) {
       console.error(error);
     } finally {
+      //finally loading off
       setIsLoading(false);
     }
   };
 
+  //storing the data when coming from api
   const storeData = async (data, key) => {
     try {
       const jsonValue = JSON.stringify(data);
@@ -63,6 +73,7 @@ const DemoNearby = () => {
     }
   };
 
+  //get function to get the data from Async storage in offline mode
   const getData = async (key) => {
     try {
       const jsonValue = await AsyncStorage.getItem(key);
@@ -73,17 +84,20 @@ const DemoNearby = () => {
     }
   };
 
+  //refresh feature to get new jobs and remove previous jobs from array and refetching the data
   const OnRefreshing = () => {
     setItems([]);
     setCurrentPage(0);
     fetchPage();
   };
 
+  //fetching the data on first mounting
   useEffect(() => {
     fetchPage();
   }, []);
 
   return (
+    //sending data in Jobcard using router params
     <View style={styles.container}>
       <View style={styles.cardsContainer}>
         <FlatList

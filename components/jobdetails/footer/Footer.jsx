@@ -12,13 +12,15 @@ import { useContext } from "react";
 import { GlobalContext } from "../../../Global/Context";
 
 const Footer = ({ jobInfo }) => {
-  const { bookmarkedJobs, setBookmarkedJobs, demo } = useContext(GlobalContext);
+  //getting the data of all bookmark jobs from global state
+  const { bookmarkedJobs, setBookmarkedJobs } = useContext(GlobalContext);
 
   const handleBookmarkPress = () => {
     const isJobBookmarked = bookmarkedJobs.some(
       (job) => job.company_name === jobInfo.company_name
     );
 
+    //Filteration based on already bookmarked or not.
     if (isJobBookmarked) {
       // Remove the job from bookmarkedJobs
       const updatedBookmarkedJobs = bookmarkedJobs.filter(
@@ -39,10 +41,6 @@ const Footer = ({ jobInfo }) => {
       );
       setBookmarkedJobs([...bookmarkedJobs, jobInfo]);
     }
-
-    //without filter
-    // setBookmarkedJobs([...bookmarkedJobs, jobInfo]);
-    // console.log(bookmarkedJobs);
   };
   return (
     <View style={styles.container}>

@@ -21,6 +21,7 @@ import { COLORS, icons, SIZES } from "../../constants";
 const tabs = ["About", "Job Details"];
 
 const JobDetails = () => {
+  //using useLocalSearchParams hook to get the data from params
   const {
     id,
     company_name,
@@ -41,6 +42,7 @@ const JobDetails = () => {
 
   const onRefresh = () => {};
 
+  //Display tabs of about and job details section
   const displayTabContent = () => {
     switch (activeTab) {
       case "Job Details":

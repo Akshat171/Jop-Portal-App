@@ -7,6 +7,8 @@ import { icons } from "../../../../constants";
 
 const NearbyJobCard = ({ job, handleNavigate }) => {
   const router = useRouter();
+  // all info about job is available in job prop to print in cards
+  //handle press to navigate on the click after pressing on that
   const handlePress = () => {
     router.push({ pathname: `/job-details/${job.job_id}`, params: { id: 2 } });
   };
