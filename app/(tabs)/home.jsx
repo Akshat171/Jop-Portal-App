@@ -21,7 +21,7 @@ const home = () => {
           },
           headerShadowVisible: false,
           headerLeft: () => (
-            <HeaderBtn iconUrl={icons.jobIcon} dimension="100%" />
+            <HeaderBtn iconUrl={icons.getPlaced} dimension="100%" />
           ),
           headerRight: () => <HeaderBtn iconUrl={icons.menu} dimension="60%" />,
           headerTitle: "GetPlaced",

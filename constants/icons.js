@@ -8,6 +8,7 @@ import jobIcon from "../assets/icons/job_icon.png";
 import vacancy from "../assets/icons/vacancy.png";
 import salary from "../assets/icons/money.png";
 import experince from "../assets/icons/review.png";
+import getPlaced from "../assets/icons/Getplaced.png";
 
 export default {
   home,
@@ -20,4 +21,5 @@ export default {
   vacancy,
   experince,
   salary,
+  getPlaced,
 };
