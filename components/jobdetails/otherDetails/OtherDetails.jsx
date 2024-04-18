@@ -11,6 +11,7 @@ const OtherDetails = ({
   opening,
   jobhours,
 }) => {
+  //information regarding jobs to print on job details page
   return (
     <View style={styles.container}>
       <Text style={styles.title}>{title}:</Text>

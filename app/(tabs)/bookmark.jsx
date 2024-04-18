@@ -6,6 +6,8 @@ import { GlobalContext } from "../../Global/Context";
 import Allbookmarkjobs from "../../components/allbookmarks/Allbookmarkjobs";
 
 const bookmark = () => {
+  //getting all info regarding bookmark jobs array from global state
+  //then passing in Allbookmark file to print them
   const { bookmarkedJobs, setBookmarkedJobs } = useContext(GlobalContext);
 
   console.log(bookmarkedJobs);

@@ -5,6 +5,7 @@ import { icons } from "../../../constants";
 import styles from "./company.style";
 
 const Company = ({ companyLogo, companyName, location, jobRole }) => {
+  //information about the company to print on job details page
   return (
     <View style={styles.container}>
       <View style={styles.logoBox}>
