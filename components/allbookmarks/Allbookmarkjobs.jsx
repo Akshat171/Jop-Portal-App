@@ -18,8 +18,8 @@ const Allbookmarkjobs = ({ jobs }) => {
           />
         </View>
       ) : (
-        <View style={noBookmarksStyles.noBookmarkcontainer}>
-          <Text style={noBookmarksStyles.noBookmarktext}>No Bookmarks</Text>
+        <View style={styles.noBookmarkcontainer}>
+          <Text style={styles.noBookmarktext}>No Bookmarks</Text>
         </View>
       )}
     </View>

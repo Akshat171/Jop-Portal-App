@@ -29,14 +29,14 @@ const styles = StyleSheet.create({
     gap: SIZES.small,
   },
   noBookmarkcontainer: {
-    flex: 1,
     justifyContent: "center",
     alignItems: "center",
+    height: "100%",
   },
   noBookmarktext: {
     fontSize: 18,
     fontWeight: "bold",
-    color: "#000",
+    color: COLORS.primary,
   },
 });
 
