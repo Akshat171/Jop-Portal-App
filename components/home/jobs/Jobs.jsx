@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import { useRouter } from "expo-router";
 import { View, ActivityIndicator, FlatList } from "react-native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
@@ -34,7 +34,7 @@ const DemoNearby = () => {
       console.log("Is connected:", isConnected);
 
       //if it is connected then fetch the data
-      if (!isConnected) {
+      if (isConnected) {
         const response = await fetch(`${api_key}${nextPage}`);
         const responseJson = await response.json();
         //   console.log(responseJson.page_size);
@@ -96,6 +96,34 @@ const DemoNearby = () => {
     fetchPage();
   }, []);
 
+  const renderItems = useCallback(
+    ({ item }) => (
+      <JobCard
+        job={item}
+        handleNavigate={() => {
+          router.push({
+            pathname: `/job-details/${item.id}`,
+            params: {
+              id: item?.job_role_id,
+              company_name: item?.creatives[0]?.file,
+              job_role: item?.job_role,
+              company_Name: item?.company_name,
+              company_location: item?.primary_details?.Place,
+              other_Details: item?.other_details,
+              salary: item?.primary_details?.Salary,
+              company_title: item?.title,
+              qualifications: item?.primary_details?.Qualification,
+              job_hours: item?.job_hours,
+              opening: item?.openings_count,
+              loading,
+            },
+          });
+        }}
+      />
+    ),
+    []
+  );
+
   return (
     //sending data in Jobcard using router params
     <View style={styles.container}>
@@ -103,30 +131,7 @@ const DemoNearby = () => {
         <FlatList
           data={items}
           keyExtractor={(item) => item.id + Math.random() + Math.random()}
-          renderItem={({ item }) => (
-            <JobCard
-              job={item}
-              handleNavigate={() => {
-                router.push({
-                  pathname: `/job-details/${item.id}`,
-                  params: {
-                    id: item?.job_role_id,
-                    company_name: item?.creatives[0]?.file,
-                    job_role: item?.job_role,
-                    company_Name: item?.company_name,
-                    company_location: item?.primary_details?.Place,
-                    other_Details: item?.other_details,
-                    salary: item?.primary_details?.Salary,
-                    company_title: item?.title,
-                    qualifications: item?.primary_details?.Qualification,
-                    job_hours: item?.job_hours,
-                    opening: item?.openings_count,
-                    loading,
-                  },
-                });
-              }}
-            />
-          )}
+          renderItem={renderItems}
           onEndReached={fetchPage}
           onEndReachedThreshold={0.1}
           contentContainerStyle={{ gap: 3 }}

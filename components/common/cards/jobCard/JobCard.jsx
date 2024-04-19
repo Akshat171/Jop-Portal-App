@@ -4,8 +4,6 @@ import { useRouter } from "expo-router";
 import styles from "./jobcard.style";
 import { checkImageURL } from "../../../../utils";
 import { icons } from "../../../../constants";
-//used memo for preventing from Re-rendering the component that have not changed for better optimization of application
-import { memo } from "react";
 
 const JobCard = ({ job, handleNavigate }) => {
   const router = useRouter();
@@ -80,7 +78,4 @@ const JobCard = ({ job, handleNavigate }) => {
   );
 };
 
-export default memo(
-  JobCard,
-  (prevProps, nextProps) => prevProps.job_role === nextProps.job_role
-);
+export default JobCard;
