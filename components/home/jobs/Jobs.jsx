@@ -34,7 +34,7 @@ const DemoNearby = () => {
       console.log("Is connected:", isConnected);
 
       //if it is connected then fetch the data
-      if (isConnected) {
+      if (!isConnected) {
         const response = await fetch(`${api_key}${nextPage}`);
         const responseJson = await response.json();
         //   console.log(responseJson.page_size);

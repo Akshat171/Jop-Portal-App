@@ -6,6 +6,7 @@ import BookMarkCard from "../common/cards/bookmarkCard/BookMarkCard";
 // const demo = [1, 23, 4];
 
 const Allbookmarkjobs = ({ jobs }) => {
+  //getting arrat from parent and passing it in Flatlist to show all bookmarked jobs
   console.log(jobs);
   return (
     <View style={styles.container}>

@@ -16,7 +16,7 @@ const home = () => {
       <Stack.Screen
         options={{
           headerStyle: {
-            backgroundColor: COLORS.lightWhite,
+            backgroundColor: "#4B49AC",
           },
           headerShadowVisible: false,
           headerLeft: () => (
@@ -41,7 +41,7 @@ const styles = {
   headerTitle: {
     fontWeight: "bold",
     fontSize: SIZES.large,
-    color: COLORS.primary,
+    color: COLORS.white,
   },
 };
 
