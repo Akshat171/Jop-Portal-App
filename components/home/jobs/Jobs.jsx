@@ -34,11 +34,12 @@ const DemoNearby = () => {
       console.log("Is connected:", isConnected);
 
       //if it is connected then fetch the data
-      if (isConnected) {
+      if (!isConnected) {
         const response = await fetch(`${api_key}${nextPage}`);
         const responseJson = await response.json();
         //   console.log(responseJson.page_size);
         setItems((existingItems) => {
+          console.log(responseJson?.results);
           return [...existingItems, ...responseJson?.results];
         });
         await storeData(responseJson?.results, "jobs");
@@ -77,10 +78,27 @@ const DemoNearby = () => {
   const getData = async (key) => {
     try {
       const jsonValue = await AsyncStorage.getItem(key);
-      return jsonValue != null ? JSON.parse(jsonValue) : null;
+      if (jsonValue !== null) {
+        try {
+          return JSON.parse(jsonValue);
+        } catch (e) {
+          console.error("Error parsing JSON data from AsyncStorage", e);
+        }
+      }
+      return null;
     } catch (e) {
       console.error("Error retrieving data from AsyncStorage", e);
       return null;
+    }
+  };
+
+  //clearing the data on Refreshing from async storage
+  const clearData = async (key) => {
+    try {
+      await AsyncStorage.removeItem(key);
+      console.log(`Data cleared for key: ${key}`);
+    } catch (e) {
+      console.error(`Error clearing data for key ${key}`, e);
     }
   };
 
@@ -88,6 +106,7 @@ const DemoNearby = () => {
   const OnRefreshing = () => {
     setItems([]);
     setCurrentPage(0);
+    clearData("jobs");
     fetchPage();
   };
 
@@ -130,7 +149,7 @@ const DemoNearby = () => {
       <View style={styles.cardsContainer}>
         <FlatList
           data={items}
-          keyExtractor={(item) => item.id + Math.random() + Math.random()}
+          keyExtractor={(item, index) => index.toString()}
           renderItem={renderItems}
           onEndReached={fetchPage}
           onEndReachedThreshold={0.1}

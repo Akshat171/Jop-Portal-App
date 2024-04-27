@@ -14,6 +14,7 @@ const Allbookmarkjobs = ({ jobs }) => {
         <View style={styles.cardsContainer}>
           <FlatList
             data={jobs}
+            keyExtractor={(item, index) => index.toString()}
             renderItem={({ item }) => <BookMarkCard job={item} />}
             contentContainerStyle={{ gap: 3 }}
           />
