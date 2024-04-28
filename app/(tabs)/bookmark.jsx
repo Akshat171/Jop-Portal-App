@@ -10,8 +10,6 @@ const bookmark = () => {
   //then passing in Allbookmark file to print them
   const { bookmarkedJobs, setBookmarkedJobs } = useContext(GlobalContext);
 
-  console.log(bookmarkedJobs);
-
   return (
     <SafeAreaView
       style={{
@@ -29,7 +27,7 @@ const bookmark = () => {
         }}
       />
 
-      <View style={{ flex: 1, padding: SIZES.medium }}>
+      <View style={{ flex: 1, paddingHorizontal: SIZES.medium }}>
         <Allbookmarkjobs jobs={bookmarkedJobs} />
       </View>
     </SafeAreaView>

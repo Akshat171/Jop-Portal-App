@@ -9,6 +9,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     marginLeft: SIZES.small,
+    padding: 2,
   },
   btnImg: (dimension) => ({
     width: dimension,

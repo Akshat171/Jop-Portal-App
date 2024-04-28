@@ -10,6 +10,8 @@ import salary from "../assets/icons/money.png";
 import experince from "../assets/icons/review.png";
 import getPlaced from "../assets/icons/Getplaced.png";
 import bookMark_fill from "../assets/icons/bookmark_fill.png";
+import whatsapp from "../assets/icons/whatsapp.png";
+import profile from "../assets/icons/man.png";
 
 export default {
   home,
@@ -24,4 +26,6 @@ export default {
   salary,
   getPlaced,
   bookMark_fill,
+  whatsapp,
+  profile,
 };

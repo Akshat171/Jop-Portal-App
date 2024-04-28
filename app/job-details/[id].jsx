@@ -35,6 +35,8 @@ const JobDetails = () => {
     opening,
     salary,
     loading,
+    number,
+    whatsapp_no,
   } = useLocalSearchParams();
   const router = useRouter();
   const [refreshing, setRefreshing] = useState(false);
@@ -125,6 +127,8 @@ const JobDetails = () => {
             company_location,
             opening,
             qualifications,
+            number,
+            whatsapp_no,
           }}
         />
       </>

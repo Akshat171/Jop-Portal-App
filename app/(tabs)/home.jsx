@@ -1,4 +1,4 @@
-import { View, SafeAreaView } from "react-native";
+import { View, SafeAreaView, StatusBar } from "react-native";
 import React from "react";
 import { Stack } from "expo-router";
 import { COLORS, FONT, icons, SIZES } from "../../constants";
@@ -22,7 +22,9 @@ const home = () => {
           headerLeft: () => (
             <HeaderBtn iconUrl={icons.getPlaced} dimension="100%" />
           ),
-          headerRight: () => <HeaderBtn iconUrl={icons.menu} dimension="60%" />,
+          headerRight: () => (
+            <HeaderBtn iconUrl={icons.profile} dimension="70%" />
+          ),
           headerTitle: "GetPlaced",
           headerTitleStyle: styles.headerTitle,
         }}

@@ -5,9 +5,9 @@ import { COLORS, SHADOWS, SIZES } from "../../../../constants";
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-
     flexDirection: "column",
-    padding: SIZES.medium,
+    padding: SIZES.small,
+    paddingTop: SIZES.small,
     borderRadius: SIZES.small,
     backgroundColor: "#7DA0FA",
     ...SHADOWS.medium,
@@ -16,8 +16,9 @@ const styles = StyleSheet.create({
   upperContainer: {
     flex: 1,
     flexDirection: "row",
-    marginHorizontal: SIZES.medium,
+    marginHorizontal: SIZES.small,
     marginBottom: SIZES.small,
+    alignItems: "center",
   },
   logoContainer: {
     width: 60,
@@ -44,14 +45,12 @@ const styles = StyleSheet.create({
     flex: 1,
     marginHorizontal: SIZES.medium,
   },
-  leftColumn: {
+  Columns: {
     flex: 1,
     alignItems: "flex-start",
+    gap: 4,
   },
-  rightColumn: {
-    flex: 1,
-    alignItems: "flex-end",
-  },
+
   jobName: {
     fontSize: SIZES.medium,
     fontFamily: "DMBold",
@@ -70,11 +69,12 @@ const styles = StyleSheet.create({
     color: COLORS.lightWhite,
     marginTop: 3,
     textTransform: "capitalize",
+    gap: 2,
   },
   locationImage: {
     width: 14,
     height: 14,
-    tintColor: COLORS.lightWhite,
+    tintColor: "black",
   },
   jobVacancy: {
     fontSize: SIZES.small + 1,
@@ -85,6 +85,38 @@ const styles = StyleSheet.create({
     backgroundColor: "#E7F3FE",
     padding: 3,
     borderRadius: SIZES.medium,
+  },
+  contactContainer: {
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "space-around",
+    marginTop: 15,
+  },
+  call_contactBtn: {
+    borderWidth: 1,
+    borderRadius: SIZES.small,
+    backgroundColor: "#4B49AC",
+    borderColor: "#4B49AC",
+  },
+  call_contactText: {
+    padding: 3,
+    paddingHorizontal: 40,
+    color: COLORS.white,
+    alignItems: "center",
+    display: "flex",
+    flexDirection: "row",
+  },
+  wa_conatctBtn: {
+    borderWidth: 2,
+    borderRadius: SIZES.small,
+    borderColor: "#4B49AC",
+  },
+  wa_conatctText: {
+    padding: 3,
+    paddingHorizontal: 40,
+    alignItems: "center",
+    display: "flex",
+    flexDirection: "row",
   },
 });
 

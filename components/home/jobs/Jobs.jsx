@@ -34,7 +34,7 @@ const DemoNearby = () => {
       console.log("Is connected:", isConnected);
 
       //if it is connected then fetch the data
-      if (!isConnected) {
+      if (isConnected) {
         const response = await fetch(`${api_key}${nextPage}`);
         const responseJson = await response.json();
         //   console.log(responseJson.page_size);
@@ -106,7 +106,6 @@ const DemoNearby = () => {
   const OnRefreshing = () => {
     setItems([]);
     setCurrentPage(0);
-    clearData("jobs");
     fetchPage();
   };
 
@@ -116,12 +115,13 @@ const DemoNearby = () => {
   }, []);
 
   const renderItems = useCallback(
-    ({ item }) => (
+    ({ item, index }) => (
       <JobCard
         job={item}
+        index={index}
         handleNavigate={() => {
           router.push({
-            pathname: `/job-details/${item.id}`,
+            pathname: `/job-details/${item?.job_role}`,
             params: {
               id: item?.job_role_id,
               company_name: item?.creatives[0]?.file,
@@ -134,6 +134,8 @@ const DemoNearby = () => {
               qualifications: item?.primary_details?.Qualification,
               job_hours: item?.job_hours,
               opening: item?.openings_count,
+              number: item?.custom_link,
+              whatsapp_no: item?.whatsapp_no,
               loading,
             },
           });

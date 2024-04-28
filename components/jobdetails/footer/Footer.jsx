@@ -1,4 +1,10 @@
-import { View, Text, TouchableOpacity, Image } from "react-native";
+import {
+  View,
+  Text,
+  TouchableOpacity,
+  Image,
+  ToastAndroid,
+} from "react-native";
 
 import styles from "./footer.style";
 import { icons } from "../../../constants";
@@ -18,19 +24,19 @@ const Footer = ({ jobInfo }) => {
       const updatedBookmarkedJobs = bookmarkedJobs.filter(
         (job) => job.company_name !== jobInfo.company_name
       );
-      // ToastAndroid.show(
-      //   "Removed from bookmark!",
-      //   ToastAndroid.SHORT,
-      //   ToastAndroid.BOTTOM
-      // );
+      ToastAndroid.show(
+        "Removed from bookmark!",
+        ToastAndroid.SHORT,
+        ToastAndroid.BOTTOM
+      );
       setBookmarkedJobs(updatedBookmarkedJobs);
     } else {
       // Add the job to bookmarkedJobs
-      // ToastAndroid.show(
-      //   "Added to bookmark!",
-      //   ToastAndroid.SHORT,
-      //   ToastAndroid.BOTTOM
-      // );
+      ToastAndroid.show(
+        "Added to bookmark!",
+        ToastAndroid.SHORT,
+        ToastAndroid.BOTTOM
+      );
       setBookmarkedJobs([...bookmarkedJobs, jobInfo]);
     }
   };
