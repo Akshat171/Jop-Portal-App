@@ -106,6 +106,8 @@ const DemoNearby = () => {
   const OnRefreshing = () => {
     setItems([]);
     setCurrentPage(0);
+    //we can add for clear Async storage on refreshing
+    // clearData("jobs")
     fetchPage();
   };
 
